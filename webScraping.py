@@ -21,7 +21,6 @@ for tag in soup.find('table', attrs={'class':'table'}).findAll('td', attrs={'cla
         datetime = tag.find('strong').text.split(' - ')
         print('Game date: ' + datetime[0] + '\nGame time: ' + datetime[1] + '\n\n')
     '''
-
     if(tag.text.translate(str.maketrans('', '', '\n\t ')).split(' - ') == "CentroSportivoTrentoNord+"):
         print(tag)
         datetime = tag.find('strong').text
