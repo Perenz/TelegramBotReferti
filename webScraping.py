@@ -20,6 +20,11 @@ for tag in soup.find('table', attrs={'class':'table'}).findAll('td', attrs={'cla
         print(stringa)
         datetime = tag.find('strong').text.split(' - ')
         print('Game date: ' + datetime[0] + '\nGame time: ' + datetime[1] + '\n\n')
+
+
+    #Class 'risultati-giorno' to navigate through Championship days
+    # https://www.pluralsight.com/guides/guide-scraping-dynamic-web-pages-python-selenium
+
     '''
     if(tag.text.translate(str.maketrans('', '', '\n\t ')).split(' - ') == "CentroSportivoTrentoNord+"):
         print(tag)
