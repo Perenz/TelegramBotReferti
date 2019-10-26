@@ -1,4 +1,5 @@
 from selenium import webdriver
+from time import sleep
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -17,23 +18,34 @@ soup = BeautifulSoup(content, features='html5lib')
 #class: risultati-giorno
 # links = soup.find_element_by_xpath("//*div[@class='risultati-giorno']")
 
-'''
+
 link = driver.find_elements_by_class_name('risultati-giorno')
+link = link[:len(link)//2]
+#link = soup.select("div.risultati-giorno a[href]")
+print(len(link))
+ctr = 0
 for l in link:
-    print(l)
+    ctr += 1
+    print(str(ctr) + ': ' + str(l))
+    #Il problema potrebbe essere che il click sull'elemento viene fatto prima che questo sia completamente caricato
+    l.click()
 
 '''
 links = soup.findAll('div', attrs={'class':'risultati-giorno'})
+links = links[:len(links)//2]
 ctrLi = 0
 ctrL = 0
+print(len(links))
 for l in links:
-    ctrL += 1
-    print(ctrL)
     for li in l:
         ctrLi += 1
-        print(str(ctrLi) +': ' + li.get('href'))
+        #li.get('href').click()
+        #print(str(ctrLi) +': ' + li.get('href'))
+        #res = driver.execute_script("javascript:getRisultatiPartite('RTN', 'M', 'D', '1', '39727', '0', '11', 'TN', 'TN')")
+        #print(res)
+'''
 
-
+'''
 #Look for td  with luogo-arbitri class in the 'result' table inside the web page
 for tag in soup.find('table', attrs={'class':'table'}).findAll('td', attrs={'class':'luogo-arbitri'}):
     # print(tag.text)
@@ -49,11 +61,4 @@ for tag in soup.find('table', attrs={'class':'table'}).findAll('td', attrs={'cla
     #Class 'risultati-giorno' to navigate through Championship days
     # https://www.pluralsight.com/guides/guide-scraping-dynamic-web-pages-python-selenium
     # https://www.seleniumhq.org/docs/
-
-    '''
-    if(tag.text.translate(str.maketrans('', '', '\n\t ')).split(' - ') == "CentroSportivoTrentoNord+"):
-        print(tag)
-        datetime = tag.find('strong').text
-        #print(datetime.split(' - '))
-
-    '''
+'''
