@@ -17,15 +17,22 @@ soup = BeautifulSoup(content, features='html5lib')
 #class: risultati-giorno
 # links = soup.find_element_by_xpath("//*div[@class='risultati-giorno']")
 
+'''
 link = driver.find_elements_by_class_name('risultati-giorno')
 for l in link:
     print(l)
 
 '''
-links = soup.find('div', attrs={'class':'col-xs-12 pad0'}).findAll('a')
-for l in link:
-    print(l)
-'''
+links = soup.findAll('div', attrs={'class':'risultati-giorno'})
+ctrLi = 0
+ctrL = 0
+for l in links:
+    ctrL += 1
+    print(ctrL)
+    for li in l:
+        ctrLi += 1
+        print(str(ctrLi) +': ' + li.get('href'))
+
 
 #Look for td  with luogo-arbitri class in the 'result' table inside the web page
 for tag in soup.find('table', attrs={'class':'table'}).findAll('td', attrs={'class':'luogo-arbitri'}):
