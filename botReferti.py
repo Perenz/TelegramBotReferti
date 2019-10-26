@@ -26,7 +26,7 @@ print(games.iloc[0]['CAMP.'] + '\n'+ games.iloc[0]['DATA'].strftime("%x")  +'\n'
 objDate = datetime.strptime("venerdì 25 ottobre 2019", "%A %d %B %Y")
 print(objDate)
 
-bot = telebot.TeleBot("712533036:AAFf0sO-_jeStnBqIu3NPv1TwYl2MmUIqGk")
+bot = telebot.TeleBot("712533036:AAFf0sO-_jeStnBqIu3NPv1TwYl2MmUIqGk ")
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):

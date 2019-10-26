@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 import pandas as pd
 
@@ -9,6 +10,22 @@ driver.get("http://www.fip.it/risultati.aspx?com=RTN&IDRegione=TN&IDProvincia=TN
 
 content = driver.page_source
 soup = BeautifulSoup(content, features='html5lib')
+
+#id: content-menu-campionati
+
+#Fetch all the href link to league days
+#class: risultati-giorno
+# links = soup.find_element_by_xpath("//*div[@class='risultati-giorno']")
+
+link = driver.find_elements_by_class_name('risultati-giorno')
+for l in link:
+    print(l)
+
+'''
+links = soup.find('div', attrs={'class':'col-xs-12 pad0'}).findAll('a')
+for l in link:
+    print(l)
+'''
 
 #Look for td  with luogo-arbitri class in the 'result' table inside the web page
 for tag in soup.find('table', attrs={'class':'table'}).findAll('td', attrs={'class':'luogo-arbitri'}):
@@ -24,6 +41,7 @@ for tag in soup.find('table', attrs={'class':'table'}).findAll('td', attrs={'cla
 
     #Class 'risultati-giorno' to navigate through Championship days
     # https://www.pluralsight.com/guides/guide-scraping-dynamic-web-pages-python-selenium
+    # https://www.seleniumhq.org/docs/
 
     '''
     if(tag.text.translate(str.maketrans('', '', '\n\t ')).split(' - ') == "CentroSportivoTrentoNord+"):
