@@ -18,3 +18,15 @@
 [1026/154929.857:ERROR:exception_snapshot_win.cc(98)] thread ID 9148 not found in process
 [1026/154929.872:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accesso negato} Un processo ha richiesto di accedere ad un oggetto ma non ha ottenuto i diritti di accesso. (0xc0000022)
 [1026/154929.882:ERROR:exception_snapshot_win.cc(98)] thread ID 21404 not found in process
+[1027/174000.293:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accesso negato} Un processo ha richiesto di accedere ad un oggetto ma non ha ottenuto i diritti di accesso. (0xc0000022)
+[1027/174000.325:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accesso negato} Un processo ha richiesto di accedere ad un oggetto ma non ha ottenuto i diritti di accesso. (0xc0000022)
+[1027/174000.330:ERROR:exception_snapshot_win.cc(98)] thread ID 18092 not found in process
+[1027/174000.330:ERROR:exception_snapshot_win.cc(98)] thread ID 8752 not found in process
+[1027/174000.376:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accesso negato} Un processo ha richiesto di accedere ad un oggetto ma non ha ottenuto i diritti di accesso. (0xc0000022)
+[1027/174000.377:ERROR:exception_snapshot_win.cc(98)] thread ID 11140 not found in process
+[1027/174126.767:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accesso negato} Un processo ha richiesto di accedere ad un oggetto ma non ha ottenuto i diritti di accesso. (0xc0000022)
+[1027/174126.768:ERROR:exception_snapshot_win.cc(98)] thread ID 14548 not found in process
+[1027/174126.830:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accesso negato} Un processo ha richiesto di accedere ad un oggetto ma non ha ottenuto i diritti di accesso. (0xc0000022)
+[1027/174126.831:ERROR:exception_snapshot_win.cc(98)] thread ID 22564 not found in process
+[1027/174153.871:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accesso negato} Un processo ha richiesto di accedere ad un oggetto ma non ha ottenuto i diritti di accesso. (0xc0000022)
+[1027/174153.871:ERROR:exception_snapshot_win.cc(98)] thread ID 8936 not found in process

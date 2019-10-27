@@ -2,11 +2,12 @@ from selenium import webdriver
 from time import sleep
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
+
 import pandas as pd
 
 #Selenium setups
 driver = webdriver.Chrome("C:/Users/stefa/chrome/chromedriver")
-
+driver.implicitly_wait(10)
 driver.get("http://www.fip.it/risultati.aspx?com=RTN&IDRegione=TN&IDProvincia=TN")
 
 content = driver.page_source
@@ -28,7 +29,13 @@ for l in link:
     ctr += 1
     print(str(ctr) + ': ' + str(l))
     #Il problema potrebbe essere che il click sull'elemento viene fatto prima che questo sia completamente caricato
-    l.click()
+    #Soluz: prendere il link e navigare tramite link invece che tramite elemento
+    #Come prendo il link se è generato da script?: href="javascript:getRisultatiPartite(...)"
+    try:
+        l.click()
+    except:
+        print("Exception DEBUG")
+        pass
 
 '''
 links = soup.findAll('div', attrs={'class':'risultati-giorno'})
