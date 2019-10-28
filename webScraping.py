@@ -1,4 +1,5 @@
 from selenium import webdriver
+
 from time import sleep
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
@@ -19,6 +20,7 @@ soup = BeautifulSoup(content, features='html5lib')
 #class: risultati-giorno
 # links = soup.find_element_by_xpath("//*div[@class='risultati-giorno']")
 
+wait = webDriverWait(driver, 20)
 
 link = driver.find_elements_by_class_name('risultati-giorno')
 link = link[:len(link)//2]
@@ -30,7 +32,12 @@ for l in link:
     print(str(ctr) + ': ' + str(l))
     #Il problema potrebbe essere che il click sull'elemento viene fatto prima che questo sia completamente caricato
     #Soluz: prendere il link e navigare tramite link invece che tramite elemento
-    #Come prendo il link se è generato da script?: href="javascript:getRisultatiPartite(...)"
+    '''
+    LINK DIRETTO AI RISULTATI:
+      http://www.fip.it/risultati.aspx?com=RTN&sesso=M&camp=D&fase=1&girone=39727&ar=1&turno=1&IDRegione=&IDProvincia=
+
+      variazioni: ar=0/1
+      turno = 1..11 in SerieD (DIPENDE DAL CAMPIONATO)
     try:
         l.click()
     except:
