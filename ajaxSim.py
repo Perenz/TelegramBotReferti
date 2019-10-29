@@ -58,22 +58,27 @@ $.ajax({
 #http://www.fip.it/risultati.aspx?com=RTN&sesso=M&camp=D&fase=1&girone=39727&ar=1&turno=5&IDRegione=TN&IDProvincia=TN
 
 #getRisultatiPartite("RTN", "M", "D", "1", "39727", "1", "5", "TN", "TN", "");
+#http://www.fip.it/FipWeb/ajaxRisultatiGetMenuCampionati.aspx?1517214586015
+
+
 
 response = session.post(
-    url = "FipWeb/ajaxRisultatiGetPartite.aspx?" + str(mstimetwo),
+    url = "http://fip.it/FipWeb/ajaxRisultatiGetPartite.aspx?" + str(mstimetwo),
     data = {
-        '&com': 'RTN',
-        '&sesso': 'M',
-        '&camp': 'D',
-        '&fase': '1',
-        '&girone' :'39727',
-        '&ar': '1',
-        '&turno': '5',
-        '&IDRegione': 'TN',
-        '&IDProvincia': 'TN',
-        '&reload': ''    
+        'com': 'RTN',
+        'sesso': 'M',
+        'camp': 'D',
+        'fase': '1',
+        'girone' :'39727',
+        'ar': '1',
+        'turno': '1',
+        'IDRegione': 'TN',
+        'IDProvincia': 'TN',
+        'reload': ''    
     }
 )
+
+print(response.text)
                     
 
 
@@ -92,4 +97,4 @@ response = session.post(
 )
 '''
 
-print(response.text)
+#print(response.text)
