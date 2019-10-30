@@ -77,7 +77,7 @@ response = requests.get(
                 }
 )
 
-print(response.content)
+print(response.headers)
 
 '''
 response = requests.get(
