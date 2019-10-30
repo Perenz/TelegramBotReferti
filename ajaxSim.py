@@ -1,4 +1,4 @@
-from requests import Session
+import requests
 import time, datetime
 
 def now_milliseconds():
@@ -21,11 +21,6 @@ mstimeone = now_milliseconds()
 
 mstimetwo = date_time_milliseconds(datetime.datetime.utcnow())
 
-session = Session()
-
-# HEAD requests ask for *just* the headers, which is all you need to grab the
-# session cookie
-session.head('http://www.fip.it')
 
 
 '''
@@ -62,9 +57,10 @@ $.ajax({
 
 
 
-response = session.post(
+#http://fip.it/FipWeb/ajaxRisultatiGetPartite.aspx?1572464154383?com=RTN&sesso=M&camp=D&fase=1&girone=39727&ar=1&turno=1&IDRegione=TN&IDProvincia=TN&reload=
+response = requests.get(
     url = "http://fip.it/FipWeb/ajaxRisultatiGetPartite.aspx?" + str(mstimetwo),
-    data = {
+    params = {
         'com': 'RTN',
         'sesso': 'M',
         'camp': 'D',
@@ -75,15 +71,42 @@ response = session.post(
         'IDRegione': 'TN',
         'IDProvincia': 'TN',
         'reload': ''    
-    }
+    },
+    headers = {'Accept':'Application/json',
+                'Content-Type': 'application/json; charset=utf-8'
+                }
 )
 
-print(response.text)
+print(response.content)
+
+'''
+response = requests.get(
+    url = "http://ajax-risultati-get-dettaglio-partita.aspx?" + str(mstimetwo),
+    params = {
+        'com': 'RTN',
+        'sesso': 'M',
+        'camp': 'D',
+        'fase': '1',
+        'girone' :'39727',
+        'ar': '1',
+        'turno': '1',
+        'IDRegione': 'TN',
+        'IDProvincia': 'TN',
+        'reload': '',
+        'IDGara': '000459',
+        'Cercagara' : ''
+    },
+    headers = {'Accept':'Application/json',
+                'Content-Type': 'application/json; charset=utf-8'
+                }
+)
+'''
+
                     
 
 
 '''
-response = session.post(
+response = requests.post(
     url='http://sportsbeta.ladbrokes.com/view/EventDetailPageComponentController',
     data={
         'N': '4294966750',
